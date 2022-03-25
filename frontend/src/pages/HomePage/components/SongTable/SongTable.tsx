@@ -1,47 +1,39 @@
 import { DataGrid, GridColumns } from "@mui/x-data-grid";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { CSVLink } from "react-csv";
 import "./SongTable.scss";
 
-type SongTableProps = {};
+type SongTableProps = {
+  songs: any;
+};
 
 export const SongTable = (props: SongTableProps) => {
   const [columns, setColumns] = useState<GridColumns>([]);
   const [rows, setRows] = useState([]);
-  const [data, setData]: any = useState({});
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
   useEffect(() => {
-    fetchSongs();
-  }, []);
-
-  async function fetchSongs() {
-    let res: any = await axios.get("http://localhost:3001/songs/");
-
-    let songs = res.data["songs"];
-
-    setData(songs);
-
-    let temp: GridColumns = [];
-    for (let key in songs) {
-      for (let key2 in songs[key]) {
-        temp.push({
-          field: `${key2}`,
-          headerName: `${key2.toUpperCase()}`,
-          headerClassName: "table-header",
-          align: "center",
-          headerAlign: "center",
-        });
+    async function generateRowsColumnsData() {
+      let songs = props.songs;
+      let temp: GridColumns = [];
+      for (let key in songs) {
+        for (let key2 in songs[key]) {
+          temp.push({
+            field: `${key2}`,
+            headerName: `${key2.toUpperCase()}`,
+            headerClassName: "table-header",
+            align: "center",
+            headerAlign: "center",
+          });
+        }
+        break;
       }
-      break;
+
+      setColumns(temp);
+      setRows(songs);
     }
-
-    setColumns(temp);
-    setRows(songs);
-
-    getCSVData();
-  }
+    generateRowsColumnsData();
+  }, [props.songs]);
 
   const getCSVData = () => {
     let csvData = [];
@@ -50,10 +42,10 @@ export const SongTable = (props: SongTableProps) => {
       tableHeaders.push(columns[key].headerName);
     }
     let tableRows = [];
-    for (let key in data) {
+    for (let key in props.songs) {
       let tableRow = [];
-      for (let key2 in data[key]) {
-        tableRow.push(data[key][key2]);
+      for (let key2 in props.songs[key]) {
+        tableRow.push(props.songs[key][key2]);
       }
       tableRows.push(tableRow);
       if (tableRows.length === rowsPerPage) break;
@@ -65,7 +57,7 @@ export const SongTable = (props: SongTableProps) => {
 
   return (
     <>
-      {data ? (
+      {props.songs ? (
         <div className="download-data-link-div">
           <CSVLink
             className="download-data-link"
@@ -80,11 +72,11 @@ export const SongTable = (props: SongTableProps) => {
         rows={rows}
         columns={columns}
         pageSize={rowsPerPage}
-        rowsPerPageOptions={[10, 20, 30, 40, 50, 60, 100]}
+        rowsPerPageOptions={[10, 20, 50, 100]}
         onPageSizeChange={setRowsPerPage}
         autoHeight
       />
-      {data ? (
+      {props.songs ? (
         <div className="download-data-link-div">
           <CSVLink
             className="download-data-link"

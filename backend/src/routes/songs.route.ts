@@ -17,8 +17,8 @@ songsRouter.get("/search", (req, res, next) => {
   let { title }: any = req.query;
 
   for (let song in songsData) {
-    if (songsData[song]["title"] === title) {
-      return res.status(200).json(songsData[song]["title"]);
+    if (songsData[song]["title"].toLowerCase() === title.toLowerCase()) {
+      return res.status(200).json(songsData[song]);
     }
   }
 
