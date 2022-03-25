@@ -1,5 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { BarChart } from "./components/BarChart/BarChart";
+import { HistogramChart } from "./components/HistogramChart/HistogramChart";
+import { ScatterChart } from "./components/ScatterChart/ScatterChart";
 import { SearchSong } from "./components/SearchSong/SearchSong";
 import { SongTable } from "./components/SongTable/SongTable";
 import "./HomePage.scss";
@@ -22,6 +25,9 @@ export const HomePage = (props: HomePageProps) => {
     <>
       <SearchSong />
       <SongTable songs={data} />
+      <ScatterChart songs={data} />
+      <HistogramChart songs={data} />
+      <BarChart songs={data} />
     </>
   );
 };
