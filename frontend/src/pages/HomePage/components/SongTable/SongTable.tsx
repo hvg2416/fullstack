@@ -1,3 +1,4 @@
+import { Rating } from "@mui/material";
 import { DataGrid, GridColumns } from "@mui/x-data-grid";
 import { useEffect, useState } from "react";
 import { CSVLink } from "react-csv";
@@ -5,11 +6,12 @@ import "./SongTable.scss";
 
 type SongTableProps = {
   songs: any;
+  rateSong: Function;
 };
 
 export const SongTable = (props: SongTableProps) => {
   const [columns, setColumns] = useState<GridColumns>([]);
-  const [rows, setRows] = useState([]);
+  const [rows, setRows] = useState<any[]>([]);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
   useEffect(() => {
@@ -24,6 +26,19 @@ export const SongTable = (props: SongTableProps) => {
             headerClassName: "table-header",
             align: "center",
             headerAlign: "center",
+            minWidth: 124,
+            renderCell: (cellValues) => {
+              if (cellValues.field === "rating") {
+                return (
+                  <Rating
+                    value={Number.parseInt(cellValues.row["rating"])}
+                    onChange={(e, rating) => {
+                      props.rateSong(cellValues.row["id"], rating);
+                    }}
+                  />
+                );
+              }
+            },
           });
         }
         break;

@@ -26,3 +26,14 @@ songsRouter.get("/search", (req, res, next) => {
     },
   });
 });
+
+songsRouter.get("/rate", (req, res, next) => {
+  let { rating, id } = req.query;
+
+  for (let song in songsData) {
+    if (songsData[song]["id"].toLowerCase() === id?.toString().toLowerCase()) {
+      songsData[song]["rating"] = rating;
+      return res.status(200).json(songsData[song]);
+    }
+  }
+});

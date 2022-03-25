@@ -10,7 +10,7 @@ import "./HomePage.scss";
 type HomePageProps = {};
 
 export const HomePage = (props: HomePageProps) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<any>([]);
 
   useEffect(() => {
     async function fetchSongs() {
@@ -21,10 +21,29 @@ export const HomePage = (props: HomePageProps) => {
     fetchSongs();
   }, []);
 
+  const rateSong = async (id: string, rating: number) => {
+    await axios.get(
+      `http://localhost:3001/songs/rate?rating=${rating}&id=${id}`
+    );
+
+    let tmp = [];
+
+    for (let key in data) {
+      if (data[key]["id"] === id) {
+        if (rating) {
+          tmp.push({ ...data[key], rating: rating });
+        }
+      } else {
+        tmp.push(data[key]);
+      }
+    }
+    setData(tmp);
+  };
+
   return (
     <>
       <SearchSong />
-      <SongTable songs={data} />
+      <SongTable songs={data} rateSong={rateSong} />
       <ScatterChart songs={data} />
       <HistogramChart songs={data} />
       <BarChart songs={data} />
