@@ -1,0 +1,25 @@
+.table-header {
+  color: white;
+  background-color: green;
+  font-weight: bold;
+}
+
+.download-data-link-div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.download-data-link {
+  text-decoration: none;
+  color: white;
+  background-color: green;
+  margin: 8px 0 8px 8px;
+  padding: 8px 12px;
+  border-radius: 24px;
+  transition: all linear 150ms;
+}
+
+.download-data-link:hover {
+  background-color: rgb(11, 104, 11);
+}
