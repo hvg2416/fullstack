@@ -15,11 +15,12 @@ export const SearchSong = (props: SearchSongProps) => {
 
   const getSong = async () => {
     setSearchResult(null);
-    let res: any = await axios.get(
+    let res = await axios.get(
       `http://localhost:3001/songs/search/?title=${searchQuery}`
     );
     let data = res.data;
-    if (!data.hasOwnProperty("error")) {
+
+    if (res.status === 200) {
       setErrorMessage("");
       setSearchResult(data);
       let tmp: GridColumns = [];

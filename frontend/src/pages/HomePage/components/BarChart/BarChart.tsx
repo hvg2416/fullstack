@@ -45,7 +45,7 @@ export const BarChart = (props: BarChartProps) => {
         <XAxis dataKey="title" />
         <YAxis />
         <Tooltip />
-        <Legend verticalAlign="top" iconType={"circle"} />
+        <Legend iconType={"circle"} />
         <Bar name="Tempo" dataKey="tempo" fill="chocolate" />
         <Bar name="Acousticness" dataKey="acousticness" fill="yellowgreen" />
       </BarGraph>

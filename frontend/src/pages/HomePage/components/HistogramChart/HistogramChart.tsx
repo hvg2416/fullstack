@@ -68,7 +68,7 @@ export const HistogramChart = (props: HistogramChartProps) => {
         <XAxis dataKey="title" />
         <YAxis />
         <Tooltip />
-        <Legend verticalAlign="top" iconType={"circle"} />
+        <Legend iconType={"circle"} />
         <Bar name="Duration" dataKey="duration" fill="green" />
       </BarChart>
     </div>

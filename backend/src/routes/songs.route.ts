@@ -1,7 +1,5 @@
 import { Router } from "express";
-const songsDataStringified: any = require("../../data/songs.json");
-
-let songsData: any = songsDataStringified;
+const songsData: any = require("../../data/songs.json");
 
 export const songsRouter = Router();
 
@@ -22,7 +20,7 @@ songsRouter.get("/search", (req, res, next) => {
     }
   }
 
-  return res.status(200).json({
+  return res.status(204).json({
     error: {
       message: "No Results found.",
     },

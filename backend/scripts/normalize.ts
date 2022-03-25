@@ -14,7 +14,6 @@ export const normalizeData = () => {
       } else {
         normalizedData[key2] = { [key]: value };
       }
-      normalizedData[key2].index = key2;
     }
   }
 

@@ -38,7 +38,7 @@ export const ScatterChart = (props: ScatterChartProps) => {
         <XAxis dataKey="x" name="Song title"></XAxis>
         <YAxis dataKey="y" name="Danceability" />
         <Tooltip />
-        <Legend verticalAlign="top" />
+        <Legend />
         <Scatter name="Danceability" data={scatterPlotData} fill="#8884d8" />
       </Chart>
     </div>
