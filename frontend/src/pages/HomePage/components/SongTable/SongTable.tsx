@@ -78,6 +78,7 @@ export const SongTable = (props: SongTableProps) => {
             className="download-data-link"
             data={getCSVData()}
             filename={"song_list.csv"}
+            data-testid="download-btn-1"
           >
             Download Table
           </CSVLink>
@@ -97,6 +98,7 @@ export const SongTable = (props: SongTableProps) => {
             className="download-data-link"
             data={getCSVData()}
             filename={"song_list.csv"}
+            data-testid="download-btn-2"
           >
             Download Table
           </CSVLink>

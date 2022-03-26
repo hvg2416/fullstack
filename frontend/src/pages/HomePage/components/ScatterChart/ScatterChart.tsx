@@ -32,7 +32,7 @@ export const ScatterChart = (props: ScatterChartProps) => {
 
   return (
     <div className="scatter-plot-div">
-      <h2>Danceability</h2>
+      <h2>Danceability Scatter Plot</h2>
       <Chart height={340} width={document.documentElement.clientWidth * 0.9}>
         <CartesianGrid strokeDasharray="2 2" />
         <XAxis dataKey="x" name="Song title"></XAxis>

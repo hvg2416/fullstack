@@ -33,7 +33,7 @@ export const BarChart = (props: BarChartProps) => {
 
   return (
     <div className="bar-chart-div">
-      <h2>Acoustics & Tempo</h2>
+      <h2>Bar Chart for Acoustics & Tempo of songs</h2>
       <BarGraph
         width={document.documentElement.clientWidth * 0.9}
         height={350}

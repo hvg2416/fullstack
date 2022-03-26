@@ -57,7 +57,7 @@ export const HistogramChart = (props: HistogramChartProps) => {
 
   return (
     <div className="histogram-chart-div">
-      <h2>Duration (seconds) </h2>
+      <h2>Histogram of Song Duration (seconds)</h2>
       <BarChart
         width={document.documentElement.clientWidth * 0.9}
         height={250}

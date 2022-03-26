@@ -51,6 +51,7 @@ export const SearchSong = (props: SearchSongProps) => {
           onChange={(e) => {
             setSearchQuery(e.target.value);
           }}
+          data-testid="input-search-query"
         />
         <Button
           variant="contained"
