@@ -1,3 +1,5 @@
+import { faExpand } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import {
   Bar,
@@ -58,10 +60,21 @@ export const HistogramChart = (props: HistogramChartProps) => {
 
   return (
     <div className="histogram-chart-div">
-      <h2>Histogram of Song Duration (seconds)</h2>
+      <div className="histogram-plot-header">
+        <div className="histogram-plot-title-div">
+          <h2>Histogram of Song Duration (seconds)</h2>
+        </div>
+        <FontAwesomeIcon
+          icon={faExpand}
+          cursor={"pointer"}
+          onClick={() => {
+            document.querySelector(".histogram-chart-div")?.requestFullscreen();
+          }}
+        />
+      </div>
       <BarChart
         width={document.documentElement.clientWidth * 0.9}
-        height={250}
+        height={document.documentElement.clientHeight / 2}
         data={histogramChartData}
         barCategoryGap={1}
       >

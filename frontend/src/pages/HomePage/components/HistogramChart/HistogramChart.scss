@@ -4,4 +4,19 @@
   align-items: center;
   flex-direction: column;
   margin-top: 24px;
+  background-color: white;
+}
+
+.histogram-plot-header {
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.histogram-plot-title-div {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 }

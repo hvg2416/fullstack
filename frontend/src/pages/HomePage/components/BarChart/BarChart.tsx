@@ -1,3 +1,5 @@
+import { faExpand } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import {
   Bar,
@@ -33,10 +35,21 @@ export const BarChart = (props: BarChartProps) => {
 
   return (
     <div className="bar-chart-div">
-      <h2>Bar Chart for Acoustics & Tempo of songs</h2>
+      <div className="bar-chart-header">
+        <div className="bar-chart-title-div">
+          <h2>Bar Chart for Acoustics & Tempo of songs</h2>
+        </div>
+        <FontAwesomeIcon
+          icon={faExpand}
+          cursor={"pointer"}
+          onClick={() => {
+            document.querySelector(".bar-chart-div")?.requestFullscreen();
+          }}
+        />
+      </div>
       <BarGraph
         width={document.documentElement.clientWidth * 0.9}
-        height={350}
+        height={document.documentElement.clientHeight / 2}
         data={barChartData}
         barCategoryGap={1}
         barGap={0}

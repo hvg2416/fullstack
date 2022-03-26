@@ -1,3 +1,5 @@
+import { faExpand } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import {
   CartesianGrid,
@@ -32,8 +34,22 @@ export const ScatterChart = (props: ScatterChartProps) => {
 
   return (
     <div className="scatter-plot-div">
-      <h2>Song Danceability Scatter Plot</h2>
-      <Chart height={350} width={document.documentElement.clientWidth * 0.9}>
+      <div className="scatter-plot-header">
+        <div className="scatter-plot-title-div">
+          <h2>Song Danceability Scatter Plot</h2>
+        </div>
+        <FontAwesomeIcon
+          icon={faExpand}
+          cursor={"pointer"}
+          onClick={() => {
+            document.querySelector(".scatter-plot-div")?.requestFullscreen();
+          }}
+        />
+      </div>
+      <Chart
+        height={document.documentElement.clientHeight / 2}
+        width={document.documentElement.clientWidth * 0.9}
+      >
         <CartesianGrid strokeDasharray="2 2" />
         <XAxis dataKey="title" name="Song title" />
         <YAxis dataKey="danceability" name="Danceability" />
