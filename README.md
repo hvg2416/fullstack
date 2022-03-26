@@ -22,4 +22,12 @@
 - `npm install`
 - `npm start`
 
+## Testing
+
+### Steps to test frontend
+
+- `cd frontend`
+- `npm install`
+- `npm run test`
+
 > NOTE: RUN BACKEND PRIOR TO FRONTEND TO AVOID API REQUESTS FAILING ERRORS.
