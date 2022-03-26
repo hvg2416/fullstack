@@ -6,7 +6,7 @@ test("ScatterChart component is rendering properly?", () => {
   render(<ScatterChart songs={[]} />);
 });
 
-test("ScatterChart has title Danceability Scatter Plot?", () => {
+test("ScatterChart has title Song Danceability Scatter Plot?", () => {
   render(<ScatterChart songs={[]} />);
-  expect(screen.getByText("Danceability Scatter Plot")).not.toBeNull();
+  expect(screen.getByText("Song Danceability Scatter Plot")).not.toBeNull();
 });

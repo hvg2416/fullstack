@@ -22,8 +22,8 @@ export const ScatterChart = (props: ScatterChartProps) => {
     let temp = [];
     for (let key in songs) {
       temp.push({
-        x: songs[key]["title"],
-        y: songs[key]["danceability"],
+        title: songs[key]["title"],
+        danceability: songs[key]["danceability"],
       });
     }
 
@@ -32,13 +32,13 @@ export const ScatterChart = (props: ScatterChartProps) => {
 
   return (
     <div className="scatter-plot-div">
-      <h2>Danceability Scatter Plot</h2>
-      <Chart height={340} width={document.documentElement.clientWidth * 0.9}>
+      <h2>Song Danceability Scatter Plot</h2>
+      <Chart height={350} width={document.documentElement.clientWidth * 0.9}>
         <CartesianGrid strokeDasharray="2 2" />
-        <XAxis dataKey="x" name="Song title"></XAxis>
-        <YAxis dataKey="y" name="Danceability" />
+        <XAxis dataKey="title" name="Song title" />
+        <YAxis dataKey="danceability" name="Danceability" />
         <Tooltip />
-        <Legend />
+        <Legend verticalAlign="top" />
         <Scatter name="Danceability" data={scatterPlotData} fill="#8884d8" />
       </Chart>
     </div>

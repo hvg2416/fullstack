@@ -3,6 +3,7 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
+  Label,
   Legend,
   Tooltip,
   XAxis,
@@ -66,9 +67,11 @@ export const HistogramChart = (props: HistogramChartProps) => {
       >
         <CartesianGrid strokeDasharray="2 2" />
         <XAxis dataKey="title" />
-        <YAxis />
+        <YAxis>
+          <Label value={"Song Duration (seconds)"} dx={-12} angle={-90} />
+        </YAxis>
         <Tooltip />
-        <Legend iconType={"circle"} />
+        <Legend iconType={"circle"} verticalAlign="top" />
         <Bar name="Duration" dataKey="duration" fill="green" />
       </BarChart>
     </div>
