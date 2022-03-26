@@ -22,7 +22,7 @@ export const HomePage = (props: HomePageProps) => {
   }, []);
 
   const rateSong = (id: string, rating: number) => {
-    axios.get(`http://localhost:3001/songs/rate?rating=${rating}&id=${id}`);
+    axios.put(`http://localhost:3001/songs/rate?rating=${rating}&id=${id}`);
 
     let tmp = [];
 

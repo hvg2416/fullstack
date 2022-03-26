@@ -27,7 +27,7 @@ songsRouter.get("/search", (req, res, next) => {
   });
 });
 
-songsRouter.get("/rate", (req, res, next) => {
+songsRouter.put("/rate", (req, res, next) => {
   let { rating, id } = req.query;
 
   for (let song in songsData) {

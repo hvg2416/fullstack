@@ -1,3 +1,4 @@
+import cors from "cors";
 import express, { Application } from "express";
 import { songsRouter } from "./routes/songs.route";
 
@@ -6,6 +7,8 @@ const app: Application = express();
 const port: number = 3001;
 
 // normalizeData();
+
+app.use(cors());
 
 app.use((req, res, next) => {
   res.set("Access-Control-Allow-Origin", "*");
