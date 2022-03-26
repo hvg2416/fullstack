@@ -21,10 +21,8 @@ export const HomePage = (props: HomePageProps) => {
     fetchSongs();
   }, []);
 
-  const rateSong = async (id: string, rating: number) => {
-    await axios.get(
-      `http://localhost:3001/songs/rate?rating=${rating}&id=${id}`
-    );
+  const rateSong = (id: string, rating: number) => {
+    axios.get(`http://localhost:3001/songs/rate?rating=${rating}&id=${id}`);
 
     let tmp = [];
 
